@@ -57,9 +57,8 @@ multisig-timelock/
 ## Getting started
 
 ```bash
-# install dependencies (version pinned, since lib/ is gitignored and not
-# tracked as a submodule, this is the only thing keeping the build reproducible)
-forge install OpenZeppelin/openzeppelin-contracts@v5.0.2 --no-commit
+# install dependencies
+forge install OpenZeppelin/openzeppelin-contracts@v5.0.2 --no-git
 
 # compile
 forge build
