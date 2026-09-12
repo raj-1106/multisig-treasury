@@ -1,0 +1,266 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600&family=IBM+Plex+Mono:wght@400;500&display=swap');
+
+:root {
+  --steel-950: #1C2023;   /* background */
+  --steel-100: #D8DEE4;   /* primary text */
+  --steel-500: #7C8B96;   /* muted text, hairlines, placeholders */
+  --brass: #C4A661;       /* pending / attention state, and primary CTA fill */
+  --sage: #6FA88F;        /* ready / executed state */
+  --rust: #A15C52;        /* revoke / danger state, muted not alarm-red */
+  --mono: "IBM Plex Mono", ui-monospace, monospace;
+  --sans: "Barlow Condensed", "Oswald", system-ui, sans-serif; /* headings only */
+  --body: system-ui, sans-serif; /* labels, body text */
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: var(--steel-950);
+  color: var(--steel-100);
+  font-family: var(--body);
+  min-height: 100vh;
+  padding: 2rem;
+  line-height: 1.5;
+}
+
+#app {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 2rem;
+  border-bottom: 1px solid rgba(124, 139, 150, 0.25);
+  padding-bottom: 1rem;
+}
+
+.wordmark {
+  font-family: var(--sans);
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  font-size: 22px;
+  color: var(--steel-100);
+}
+
+.wordmark span {
+  font-weight: 400;
+  opacity: 0.7;
+}
+
+button {
+  cursor: pointer;
+  padding: 10px 16px;
+  border-radius: 2px;
+  font-family: var(--body);
+  font-size: 14px;
+  transition: all 0.2s;
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.btn-secondary {
+  background: transparent;
+  border: 1px solid var(--steel-500);
+  color: var(--steel-100);
+}
+.btn-secondary:hover:not(:disabled) {
+  background: rgba(216, 222, 228, 0.05);
+}
+
+.btn-primary {
+  background: var(--brass);
+  border: 1px solid var(--brass);
+  color: var(--steel-950);
+  font-weight: 600;
+}
+.btn-primary:hover:not(:disabled) {
+  opacity: 0.9;
+}
+
+.btn-danger {
+  background: transparent;
+  border: 1px solid var(--rust);
+  color: var(--rust);
+}
+.btn-danger:hover:not(:disabled) {
+  background: rgba(161, 92, 82, 0.1);
+}
+
+.monospace {
+  font-family: var(--mono);
+}
+
+/* Ledger Strip */
+.ledger-strip {
+  display: flex;
+  gap: 24px;
+  padding: 16px 0;
+  border-top: 1px solid rgba(124, 139, 150, 0.25);
+  border-bottom: 1px solid rgba(124, 139, 150, 0.25);
+  font-size: 14px;
+  margin-bottom: 2rem;
+}
+
+.ledger-item {
+  color: var(--steel-100);
+  display: flex;
+  align-items: center;
+}
+
+.ledger-item .value {
+  font-family: var(--mono);
+  color: var(--brass);
+  margin-left: 6px;
+}
+
+.setup-panel, .propose-panel {
+  margin-bottom: 2rem;
+}
+
+h2 {
+  font-family: var(--sans);
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  margin-bottom: 1rem;
+  color: var(--steel-100);
+}
+
+.input-group {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.form-group {
+  margin-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  font-size: 14px;
+  margin-bottom: 4px;
+  color: var(--steel-500);
+}
+
+input, textarea {
+  background: transparent;
+  border: 1px solid var(--steel-500);
+  color: var(--steel-100);
+  font-family: var(--mono);
+  padding: 10px 12px;
+  border-radius: 2px;
+  width: 100%;
+}
+
+input:focus, textarea:focus {
+  outline: none;
+  border-color: var(--brass);
+}
+
+input::placeholder {
+  color: var(--steel-500);
+}
+
+/* Transactions */
+.tx-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.tx-item {
+  border: 1px solid rgba(124, 139, 150, 0.25);
+  padding: 1.5rem;
+  border-radius: 2px;
+}
+
+.tx-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid rgba(124, 139, 150, 0.25);
+  padding-bottom: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.tx-id {
+  font-family: var(--sans);
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+
+.status-badge {
+  border: 1px solid var(--sage);
+  color: var(--sage);
+  background: transparent;
+  padding: 2px 8px;
+  border-radius: 2px;
+  font-family: var(--mono);
+  font-size: 12px;
+  margin-left: 12px;
+  vertical-align: middle;
+}
+
+.status-badge.pending {
+  color: var(--brass);
+  border-color: var(--brass);
+}
+
+.status-badge.ready, .status-badge.executed {
+  color: var(--sage);
+  border-color: var(--sage);
+}
+
+.tx-details {
+  display: grid;
+  grid-template-columns: 100px 1fr;
+  gap: 0.5rem 1rem;
+  font-size: 14px;
+  margin-bottom: 1.5rem;
+}
+
+.tx-label {
+  color: var(--steel-500);
+}
+
+.tx-value {
+  color: var(--steel-100);
+}
+
+.tx-actions {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+/* Confirmation Dots */
+.conf-dots {
+  display: flex;
+  gap: 4px;
+  margin-right: auto;
+}
+
+.confirmation-dot {
+  width: 8px; 
+  height: 8px; 
+  border-radius: 50%;
+  background: var(--sage);
+}
+
+.confirmation-dot.pending {
+  background: transparent;
+  border: 1px solid var(--steel-500);
+}

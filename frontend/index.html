@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Multisig Timelock</title>
+  </head>
+  <body>
+    <div id="app">
+      <header>
+        <div class="wordmark">Multisig <span>· Timelock</span></div>
+        <button id="connectBtn" class="btn-secondary">Connect Wallet</button>
+      </header>
+      
+      <main>
+        <section class="setup-panel">
+          <div class="input-group">
+            <input type="text" id="contractAddress" placeholder="contract address" value="0x4Be57140816d2d4E6cD7b38Df2Cf368db0700a44" class="monospace" />
+            <button id="loadContractBtn" class="btn-secondary">Load Contract</button>
+          </div>
+          
+          <div id="ledgerStrip" class="ledger-strip hidden">
+            <div class="ledger-item">Threshold <span class="value" id="statThreshold">-</span></div>
+            <div class="ledger-item">·</div>
+            <div class="ledger-item">Delay <span class="value" id="statDelay">-</span></div>
+            <div class="ledger-item">·</div>
+            <div class="ledger-item">Txs <span class="value" id="statTxCount">-</span></div>
+          </div>
+        </section>
+
+        <section class="propose-panel">
+          <h2>Propose transaction</h2>
+          <form id="proposeForm">
+            <div class="form-group">
+              <label>target</label>
+              <input type="text" id="propTo" required placeholder="0x..." class="monospace" />
+            </div>
+            <div class="form-group">
+              <label>value (wei)</label>
+              <input type="number" id="propValue" required value="0" class="monospace" />
+            </div>
+            <div class="form-group">
+              <label>calldata</label>
+              <input type="text" id="propData" placeholder="0x" value="0x" class="monospace" />
+            </div>
+            <button type="submit" id="proposeBtn" class="btn-primary" disabled>Propose</button>
+          </form>
+        </section>
+
+        <section class="tx-list-panel">
+          <div class="tx-list" id="txList">
+            <div class="ledger-item" style="opacity: 0.5;">No contract loaded.</div>
+          </div>
+        </section>
+      </main>
+    </div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
