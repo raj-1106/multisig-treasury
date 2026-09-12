@@ -2,7 +2,7 @@
 
 ![solidity](https://img.shields.io/badge/solidity-0.8.26-363636)
 ![built with](https://img.shields.io/badge/built%20with-Foundry-black)
-![tests](https://img.shields.io/github/actions/workflow/status/YOUR_GH_USERNAME/YOUR_REPO_NAME/test.yml?label=tests)
+![tests](https://img.shields.io/github/actions/workflow/status/raj-1106/multisig-treasury/test.yml?label=tests)
 ![license](https://img.shields.io/badge/license-MIT-green)
 
 An N-of-M multisig wallet with a mandatory execution delay, built in Solidity with Foundry, plus a minimal ethers.js dashboard for propose / confirm / revoke / execute.
