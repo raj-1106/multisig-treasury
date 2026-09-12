@@ -58,6 +58,7 @@ multisig-timelock/
 
 ```bash
 # install dependencies
+forge install foundry-rs/forge-std@v1.9.3 --no-git
 forge install OpenZeppelin/openzeppelin-contracts@v5.0.2 --no-git
 
 # compile
