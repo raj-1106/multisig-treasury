@@ -18,3 +18,12 @@ docs/
 .env
 .env.*
 !.env.example
+
+# Foundry dependencies
+lib/
+
+# Frontend dependencies
+frontend/node_modules/
+frontend/dist/
+frontend/.npm/
+
